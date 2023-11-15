@@ -8,6 +8,8 @@ import {
   MdSearch,
   MdNotifications,
 } from "react-icons/md";
+import { cn } from "@/lib/utils";
+import Card from "./dashboard/card";
 
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -15,7 +17,10 @@ const Navbar = React.forwardRef<HTMLDivElement, NavbarProps>(
   ({ className }, ref) => {
     const pathname = usePathname();
     return (
-      <div className="flex bg-background-soft p-6 rounded-sm shadow">
+      <div
+        ref={ref}
+        className={cn("flex bg-background-soft p-6 rounded-sm shadow")}
+      >
         <div className="flex justify-between w-full">
           <h1 className="text-text-soft capitalize">
             {pathname.split("/").pop()}

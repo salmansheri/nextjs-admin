@@ -2,12 +2,13 @@
 import { cn } from "@/lib/utils";
 import * as React from "react";
 import { IconType } from "react-icons";
+import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: IconType;
   title: string;
   price: number;
-  percentage: string;
+  percentage: number;
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -19,7 +20,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         {...props}
         className={cn(
-          " flex flex-col gap-5 bg-background-soft p-5 rounded-md shadow",
+          " flex flex-col gap-5 bg-background-soft p-5 rounded-md shadow  cursor-pointer hover:bg-white/10 transition-all duration-500 ease-linear",
           className
         )}
         ref={ref}
@@ -30,9 +31,17 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         </span>
         <div className="flex flex-col gap-y-5">
           <h1 className="text-3xl">{price}</h1>
-          <p className="text-sm">
-            <span className="text-green-500">{percentage}</span> more the
-            previos week
+          <p className="text-sm flex gap-1">
+            <span
+              className={cn(
+                "flex items-center",
+                percentage > 25 ? "text-green-500" : "text-red-500"
+              )}
+            >
+              {`${percentage}% `}
+              {percentage > 25 ? <MdArrowUpward /> : <MdArrowDownward />}
+            </span>{" "}
+            more the previos week
           </p>
         </div>
       </div>

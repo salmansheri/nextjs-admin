@@ -10,19 +10,19 @@ const CardItem = () => {
       <Card
         title="Total Users"
         price={10.923}
-        percentage="12%"
+        percentage={30}
         icon={MdSupervisedUserCircle}
       />
       <Card
         title="Total Users"
         price={10.923}
-        percentage="12%"
+        percentage={12}
         icon={MdSupervisedUserCircle}
       />
       <Card
         title="Total Users"
         price={10.923}
-        percentage="12%"
+        percentage={12}
         icon={MdSupervisedUserCircle}
       />
     </div>

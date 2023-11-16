@@ -16,7 +16,7 @@ export default function DashboardPage() {
         <Chart />
       </div>
       {/* side  */}
-      <div className={styles.rightbar}>
+      <div className={cn("space-y-10", styles.rightbar)}>
         <Rightbar />
       </div>
     </div>

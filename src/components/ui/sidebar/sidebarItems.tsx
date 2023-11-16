@@ -13,9 +13,9 @@ interface SidebarItemsProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SidebarItems = React.forwardRef<HTMLDivElement, SidebarItemsProps>(
-  ({ title, list, ...props }) => {
+  ({ title, list, ...props }, ref) => {
     return (
-      <div {...props} className="py-3">
+      <div ref={ref} {...props} className="py-3">
         <div className="py-3">{title}</div>
         <div className="flex flex-col p-2 gap-y-3">
           {list.map((item) => (

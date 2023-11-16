@@ -14,7 +14,7 @@ interface SidebarItemLinkProps extends LinkProps {
 }
 
 const SidebarItemLink = React.forwardRef<LinkProps, SidebarItemLinkProps>(
-  ({ title, icon: Icon, href, ...props }) => {
+  ({ title, icon: Icon, href, ...props }, ref) => {
     const pathname = usePathname();
     const isActive = pathname === href;
 
@@ -23,7 +23,7 @@ const SidebarItemLink = React.forwardRef<LinkProps, SidebarItemLinkProps>(
         href={href}
         {...props}
         className={cn(
-          "flex items-center gap-x-1 p-2 rounded-md hover:bg-white/10",
+          "flex items-center gap-x-1 p-2 rounded-md hover:bg-white/10 transition-all  duration-300 ease-linear",
           isActive && "bg-white/20 hover:bg-none"
         )}
       >

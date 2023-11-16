@@ -6,7 +6,7 @@ import { MdSupervisedUserCircle } from "react-icons/md";
 
 const CardItem = () => {
   return (
-    <div className="flex gap-5 justify-between">
+    <div className="flex gap-5 justify-between flex-col lg:flex-row">
       <Card
         title="Total Users"
         price={10.923}

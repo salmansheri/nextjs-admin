@@ -20,7 +20,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         {...props}
         className={cn(
-          " flex flex-col gap-5 bg-background-soft p-5 rounded-md shadow  cursor-pointer hover:bg-white/10 transition-all duration-500 ease-linear",
+          " flex flex-col gap-5 bg-background-soft lg:p-5 p-2 rounded-md shadow  cursor-pointer hover:bg-white/10 transition-all duration-500 ease-linear",
           className
         )}
         ref={ref}
@@ -30,7 +30,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           {title}
         </span>
         <div className="flex flex-col gap-y-5">
-          <h1 className="text-3xl">{price}</h1>
+          <h1 className=" text-xl lg:text-3xl">{price}</h1>
           <p className="text-sm flex gap-1">
             <span
               className={cn(

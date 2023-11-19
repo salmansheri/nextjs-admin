@@ -1,15 +1,10 @@
-"use client";
-
-import { MdHdrPlus, MdSearch } from "react-icons/md";
+import Dropdown from "@/components/ui/dropdown";
+import Pagination from "@/components/ui/pagination";
 import Image from "next/image";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import React, { useState } from "react";
+import { MdSearch } from "react-icons/md";
 
 export default function UsersPage() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
   return (
     <div className="bg-background-soft rounded-md shadow lg:p-6 p-2 w-full space-y-3">
       {/* Top  */}
@@ -57,29 +52,14 @@ export default function UsersPage() {
               <td className="">Oct 30 2023</td>
               <td className="">client</td>
               <td className="">Passive</td>
-              <td className="relative  w-52">
-                <button onClick={() => setIsOpen((prev) => !prev)}>
-                  <BsThreeDotsVertical className="cursor-pointer" />
-                </button>
-                {isOpen && (
-                  <div className="w-52 flex flex-col gap-y-2 absolute z-[99999] bg-neutral-200 text-black p-2 rounded top-10 transition-all duration-500 ease-linear">
-                    <span className="cursor-pointer">View</span>
-                    <span className="cursor-pointer">Delete</span>
-                  </div>
-                )}
+              <td className="">
+                <Dropdown />
               </td>
             </tr>
           </tbody>
         </table>
         {/* BOTTOM  */}
-        <div className="flex items-center justify-between mt-5">
-          <button className="bg-white text-black p-2 rounded shadow hover:bg-white/90 transition ease-linear">
-            <FaAngleLeft size={20} />
-          </button>
-          <button className="bg-white text-black p-2 rounded shadow hover:bg-white/90 transition ease-linear">
-            <FaAngleRight size={20} />
-          </button>
-        </div>
+        <Pagination />
       </div>
     </div>
   );

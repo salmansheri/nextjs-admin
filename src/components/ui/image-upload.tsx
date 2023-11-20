@@ -2,6 +2,7 @@
 
 import { ourFileRouter } from "@/app/api/uploadthing/core";
 import { UploadButton, UploadDropzone } from "@/lib/uploadthing";
+import React, { useEffect, useState } from "react";
 
 interface ImageUploadProps {
   onChange: (url?: string) => void;
@@ -9,6 +10,16 @@ interface ImageUploadProps {
 }
 
 export default function ImageUpload({ onChange, endpoint }: ImageUploadProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <UploadDropzone
       endpoint={endpoint}

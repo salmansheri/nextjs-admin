@@ -1,6 +1,7 @@
 import Dropdown from "@/components/ui/dropdown";
 import Pagination from "@/components/ui/pagination";
 import Image from "next/image";
+import Link from "next/link";
 import { IoMdAdd } from "react-icons/io";
 import { MdSearch } from "react-icons/md";
 
@@ -18,10 +19,12 @@ export default function UsersPage() {
           />
         </div>
         <div>
-          <button className="p-2 bg-violet-500 rounded-md shadow hover:bg-violet-500/80 transition ease-linear flex items-center justify-center gap-x-2">
-            <IoMdAdd className="lg:hidden" size={20} />
-            <span className="hidden lg:block">Add New</span>
-          </button>
+          <Link href="/dashboard/users/add">
+            <button className="p-2 bg-violet-500 rounded-md shadow hover:bg-violet-500/80 transition ease-linear flex items-center justify-center gap-x-2">
+              <IoMdAdd className="lg:hidden" size={20} />
+              <span className="hidden lg:block">Add New</span>
+            </button>
+          </Link>
         </div>
       </div>
       {/* Table  */}

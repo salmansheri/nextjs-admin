@@ -11,42 +11,62 @@ const ProductForm = () => {
         <ImageUpload endpoint="imageUploader" onChange={() => {}} />
       </div>
       <form>
-        <div className="grid grid-cols-2 w-full place-content-center gap-5">
+        <div className="grid  grid-cols-1  lg:grid-cols-2 w-full place-content-center gap-5">
           <div className="w-full">
             <input
+              required
               name="title"
               placeholder="Title"
               className="w-full p-2 bg-background-soft"
             />
           </div>
           <div className="w-full">
+            <select className="w-full bg-transparent " name="category">
+              <option className="text-black" value="general">
+                Choose a Category
+              </option>
+              <option className="text-black" value="kitchen">
+                Kitchen
+              </option>
+              <option className="text-black" value="phone">
+                Phone
+              </option>
+              <option className="text-black" value="computer">
+                Computer
+              </option>
+            </select>
+          </div>
+          <div className="w-full">
             <input
+              className="w-full p-2 bg-background-soft"
               placeholder="Price"
-              className="w-full p-2 bg-background-soft"
+              type="number"
+              name="stock"
+              required
             />
           </div>
           <div className="w-full">
             <input
+              name="stock"
+              type="number"
               className="w-full p-2 bg-background-soft"
-              placeholder="Title"
+              placeholder="Stock"
             />
           </div>
           <div className="w-full">
             <input
+              type="text"
+              name="color"
               className="w-full p-2 bg-background-soft"
-              placeholder="Title"
+              placeholder="color"
             />
           </div>
           <div className="w-full">
             <input
+              name="size"
+              type="text"
               className="w-full p-2 bg-background-soft"
-              placeholder="Title"
-            />
-          </div>
-          <div className="w-full">
-            <input
-              className="w-full p-2 bg-background-soft"
-              placeholder="Title"
+              placeholder="Size"
             />
           </div>
         </div>
@@ -57,7 +77,10 @@ const ProductForm = () => {
           />
         </div>
         <div className="mt-5">
-          <button className="w-full bg-violet-500 p-2 rounded-md ">
+          <button
+            className="w-full bg-violet-500 p-2 rounded-md "
+            type="submit"
+          >
             Submit
           </button>
         </div>

@@ -6,6 +6,37 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  username       String  @unique
+  email          String  @unique
+  hashedPassword String
+  userImage      String?
+  isAdmin        Boolean @default(false)
+  isActive       Boolean @default(true)
+
+  phone     Int?
+  address   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products Product[]
+}
+
+model Product {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String  @db.ObjectId
+  title        String  @unique
+  description  String
+  price        Int
+  productImage String?
+  color        String?
+  size         String?
+  stock        Int?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
